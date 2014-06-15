@@ -1,0 +1,57 @@
+<html>
+<head>
+    <style>
+        img {
+            position: absolute;
+        }
+
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+</head>
+<body>
+<img src="main.jpg" id="main" alt=""/>
+<script>
+    var names = [
+        "billy",
+        "cow",
+        "ru",
+        "leo",
+        "willy",
+        "chiawei",
+        "kyle",
+        "jim",
+        "ghost",
+    ];
+
+    $(function () {
+        var $body = $('body');
+
+        //load all
+        for (var i = 0; i < names.length; i++) {
+            var fn = names[i];
+            $('<img src="' + fn + '.png">')
+                    .attr('id', fn)
+                    .hide()
+                    .appendTo($body);
+        }
+
+
+        var i = 0;
+        var handle = setInterval(function () {
+            var fn = names[i];
+            $("#" + fn)
+                    .fadeIn(3000);
+
+            i++;
+            if (i > names.length) {
+                $("body").fadeOut(5000);
+                clearInterval(handle);
+            }
+        }, 1000);
+    });
+
+</script>
+
+</body>
+
+</html>
