@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+    img {
+        position: absolute;
+    }
+
+    .mask {
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="canvas">
+        <img src="asset/background.jpg" id="background" alt="" />
+        <img src="asset/main.jpg" id="main" alt="" />
+        <img class="mask" src="asset/billy.png" id="billy" />
+        <img class="mask" src="asset/cow.png" id="cow" />
+        <img class="mask" src="asset/ru.png" id="ru" />
+        <img class="mask" src="asset/leo.png" id="leo" />
+        <img class="mask" src="asset/willy.png" id="willy" />
+        <img class="mask" src="asset/chiawei.png" id="chiawei" />
+        <img class="mask" src="asset/kyle.png" id="kyle" />
+        <img class="mask" src="asset/jim.png" id="jim" />
+        <img class="mask" src="asset/ghost.png" id="ghost" />
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+    var names = [
+        "billy",
+        "cow",
+        "ru",
+        "leo",
+        "willy",
+        "chiawei",
+        "kyle",
+        "jim",
+        "ghost"
+    ];
+
+    $(function() {
+        var $body = $('body');
+
+        var i = 0;
+        var handle = setInterval(function() {
+            var fn = names[i];
+            $("#" + fn).fadeIn(3000);
+
+            i++;
+            if (i > names.length) {
+                $("body").fadeOut(5000);
+                clearInterval(handle);
+            }
+        }, 1000);
+    });
+    </script>
+</body>
+
+</html>
